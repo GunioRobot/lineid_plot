@@ -3,7 +3,7 @@ Line identification plots using Matplotlib
 
 .. _lineid_plot: http://idlastro.gsfc.nasa.gov/ftp/pro/plot/lineid_plot.pro
 .. _IDL Astronomy User's Library: http://idlastro.gsfc.nasa.gov/
-.. _pip: http://pypi.python.org/pypi/pip 
+.. _pip: http://pypi.python.org/pypi/pip
 .. _easy_install: http://packages.python.org/distribute/easy_install.html
 
 Manually labeling features in a crowed plot can be very time
@@ -23,7 +23,7 @@ Installation
 Use `pip`_ or `easy_install`_::
 
   $ pip install lineid_plot
-  
+
 or::
 
   $ easy_install lineid_plot
@@ -62,7 +62,7 @@ features.
 
 
 The ``plot_line_ids()`` function also accepts Axes and/or Figure
-instances where labels are to be draw. 
+instances where labels are to be draw.
 
 .. image:: http://github.com/phn/lineid_plot/blob/master/multi_axes.png?raw=true
    :scale: 75%
@@ -72,16 +72,16 @@ instances where labels are to be draw.
   >>> import numpy as np
   >>> from matplotlib import pyplot as plt
   >>> import lineid_plot
-   
+
   >>> wave = 1240 + np.arange(300) * 0.1
   >>> flux = np.random.normal(size=300)
   >>> line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
   >>> line_flux = np.interp(line_wave, wave, flux)
   >>> line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
   >>> label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
-   
+
   >>> fig = plt.figure(1)
-  
+
   >>> ax = fig.add_axes([0.1,0.06, 0.85, 0.35])
   >>> ax.plot(wave, flux)
   >>> lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, ax=ax)
@@ -99,7 +99,7 @@ identify them.
 
   >>> for i in ax.texts:
      ....:     print i.get_label()
-     ....:     
+     ....:
   N V
   Si II_num_1
   Si II_num_2
@@ -109,7 +109,7 @@ identify them.
   Si II_num_6
   >>> for i in ax.lines:
      ....:     print i.get_label()
-     ....:     
+     ....:
   _line0
   N V_line
   Si II_num_1_line
@@ -143,7 +143,7 @@ plots are to be made. If an Axes instance is provided, then the data is
 not plotted; only the labels are marked. This allows the user to
 separate plotting from labeling. For example, the user can create
 multiple Axes on a figure and then pass the Axes on which labels are to
-be marked. No changes are made to the existing layout. 
+be marked. No changes are made to the existing layout.
 
 The y axis locations of labels and annotation points i.e., arrow tips,
 can also be passed to the ``plot_line_ids()`` function. Minor changes can
@@ -183,10 +183,10 @@ Released under BSD; see http://www.opensource.org/licenses/bsd-license.php.
 Credits
 =======
 
-Code here is adapted from `lineid_plot`_ procedure in the 
-`IDL Astronomy User's Library`_ (IDLASTRO) IDL code distributed by NASA. 
+Code here is adapted from `lineid_plot`_ procedure in the
+`IDL Astronomy User's Library`_ (IDLASTRO) IDL code distributed by NASA.
 
-For comments and suggestions, email to user prasanthhn in the gmail.com domain. 
+For comments and suggestions, email to user prasanthhn in the gmail.com domain.
 
 
 ..  LocalWords:  lineid IDL idlastro gsfc nasa

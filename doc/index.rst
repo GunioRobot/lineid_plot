@@ -32,42 +32,42 @@ Some example are shown below.
 Minimal plot with automatic label layout
 ----------------------------------------
 
-.. plot:: 
+.. plot::
    :include-source:
 
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
    flux = np.random.normal(size=300)
-    
+
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
-    
+
    lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1)
-    
+
    plt.show()
 
 Plot without line from annotation point to flux level
 -----------------------------------------------------
 
-.. plot:: 
+.. plot::
    :include-source:
 
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
    flux = np.random.normal(size=300)
-    
+
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
-    
+
    # Set extend=False.
    lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, extend=False)
-    
+
    plt.show()
 
 Multiple plots using user provided Axes instances
@@ -79,17 +79,17 @@ Multiple plots using user provided Axes instances
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
-    
+
    fig = plt.figure()
 
-   # First Axes    
+   # First Axes
    ax = fig.add_axes([0.1,0.06, 0.85, 0.35])
    ax.plot(wave, flux)
 
@@ -126,7 +126,7 @@ preferred when major changes are required.
 
   # box_axes_space takes numbers in figure fraction units. Keep this
   # small.
-  lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+  lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
     box_axes_space=0.08)
 
 .. plot::
@@ -134,15 +134,15 @@ preferred when major changes are required.
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
 
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      box_axes_space=0.08)
 
    plt.show()
@@ -158,7 +158,7 @@ range for the Axes and then pass the Axes instance to
 .. code-block:: python
 
    # Use arrow_tip keyword.
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=3.3, ax=ax)
 
 .. plot::
@@ -166,21 +166,21 @@ range for the Axes and then pass the Axes instance to
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
-    
+
    fig = plt.figure()
    ax = fig.add_subplot(111)
    ax.plot(wave, flux)
    ax.axis([1240, 1270, -3, 5])
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=3.3, ax=ax)
-   
+
    plt.show()
 
 Each label can have its own annotation point.
@@ -188,7 +188,7 @@ Each label can have its own annotation point.
 .. code-block:: python
 
    arrow_tips = [3.3, 3.3, 3.3, 3.4, 3.5, 3.4, 3.3]
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=arrow_tips, ax=ax)
 
 .. plot::
@@ -196,9 +196,9 @@ Each label can have its own annotation point.
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
@@ -210,9 +210,9 @@ Each label can have its own annotation point.
    ax.axis([1240, 1270, -3, 5])
 
    arrow_tips = [3.3, 3.3, 3.3, 3.4, 3.5, 3.4, 3.3]
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=arrow_tips, ax=ax)
-   
+
    plt.show()
 
 
@@ -227,7 +227,7 @@ instance to `plot_line_ids()`.
 
 .. code-block:: python
 
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=3.3, ax=ax, box_loc=4.3)
 
 .. plot::
@@ -235,21 +235,21 @@ instance to `plot_line_ids()`.
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
-   
+
    fig = plt.figure()
    ax = fig.add_subplot(111)
    ax.plot(wave, flux)
    ax.axis([1240, 1270, -3, 5])
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=3.3, ax=ax, box_loc=4.3)
-   
+
    plt.show()
 
 
@@ -259,7 +259,7 @@ Each box can be assigned a separate Y box location.
 
    arrow_tips = [3.3, 3.3, 3.3, 3.4, 3.5, 3.4, 3.3]
    box_loc = [4.3, 4.3, 4.3, 4.4, 4.5, 4.4, 4.3]
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=arrow_tips, box_loc=box_loc, ax=ax)
 
 .. plot::
@@ -267,9 +267,9 @@ Each box can be assigned a separate Y box location.
    import numpy as np
    from matplotlib import pyplot as plt
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
@@ -282,9 +282,9 @@ Each box can be assigned a separate Y box location.
 
    arrow_tips = [3.3, 3.3, 3.3, 3.4, 3.5, 3.4, 3.3]
    box_loc = [4.3, 4.3, 4.3, 4.4, 4.5, 4.4, 4.3]
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=arrow_tips, box_loc=box_loc, ax=ax)
-   
+
    plt.show()
 
 
@@ -294,7 +294,7 @@ Accessing a specific label
 Each box has a property named `label`. These are identical to the input
 labels, except when there are duplicated. The duplicate texts are given
 a numeric suffix, based on the order in which the duplicates occur in
-the input. These are generated using the `unique_labels` function. 
+the input. These are generated using the `unique_labels` function.
 
 .. code-block:: python
 
@@ -329,9 +329,9 @@ flux level are made invisible.
    from matplotlib import pyplot as plt
    import matplotlib as mpl
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
@@ -344,7 +344,7 @@ flux level are made invisible.
 
    arrow_tips = [3.3, 3.3, 3.3, 3.4, 3.5, 3.4, 3.3]
    box_loc = [4.3, 4.3, 4.3, 4.4, 4.5, 4.4, 4.3]
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
      arrow_tip=arrow_tips, box_loc=box_loc, ax=ax)
 
    a = ax.findobj(mpl.text.Annotation)
@@ -375,24 +375,24 @@ doesn't separate the labels well enough.
 
 .. code-block:: python
 
- lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+ lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
   max_iter=10)
-  
+
 .. plot::
 
    import numpy as np
    from matplotlib import pyplot as plt
    import matplotlib as mpl
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
 
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
     max_iter=10)
 
    plt.show()
@@ -401,7 +401,7 @@ Using a value of 300 works. Note that the default is 1000.
 
 .. code-block:: python
 
- lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+ lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
   max_iter=300)
 
 .. plot::
@@ -410,15 +410,15 @@ Using a value of 300 works. Note that the default is 1000.
    from matplotlib import pyplot as plt
    import matplotlib as mpl
    import lineid_plot
-    
+
    wave = 1240 + np.arange(300) * 0.1
-   flux = np.random.normal(size=300) 
+   flux = np.random.normal(size=300)
    line_wave = [1242.80, 1260.42, 1264.74, 1265.00, 1265.2, 1265.3, 1265.35]
    line_flux = np.interp(line_wave, wave, flux)
    line_label1 = ['N V', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II', 'Si II']
    label1_sizes = np.array([12, 12, 12, 12, 12, 12, 12])
 
-   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1, 
+   lineid_plot.plot_line_ids(wave, flux, line_wave, line_label1,
     max_iter=300)
 
    plt.show()
@@ -426,7 +426,7 @@ Using a value of 300 works. Note that the default is 1000.
 
 .. Indices and tables
 .. ==================
-..  
+..
 .. * :ref:`genindex`
 .. * :ref:`modindex`
 .. * :ref:`search`
